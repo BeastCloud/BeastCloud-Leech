@@ -62,8 +62,9 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://www.github.com/anasty17/mirror-leech-telegram-bot")
-    buttons.buildbutton("Report Group", "https://t.me/+MwgSi5vmQEA2N2Vk")
+    buttons.buildbutton("Repo", "https://github.com/BeastCloud/BeastCloud-Leech")
+    buttons.buildbutton("Support Group", "https://t.me/BeastCloudOfficial")
+    buttons.buildbutton("Owner", "https://t.me/VijayD0211")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -72,10 +73,10 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
-        sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update, reply_markup)
+        sendMarkup('Not Authorized User!', context.bot, update, reply_markup)
 
 def restart(update, context):
-    restart_message = sendMessage("Restarting...", context.bot, update)
+    restart_message = sendMessage("♻Restarting...", context.bot, update)
     if Interval:
         Interval[0].cancel()
     alive.kill()
@@ -173,7 +174,7 @@ help_string_telegraph = f'''<br>
 '''
 
 help = telegraph.create_page(
-        title='Mirror-Leech-Bot Help',
+        title='BeastCloud Search',
         content=help_string_telegraph,
     )["path"]
 
@@ -209,36 +210,32 @@ def bot_help(update, context):
 
 botcmds = [
 
-        (f'{BotCommands.MirrorCommand}', 'Mirror'),
-        (f'{BotCommands.ZipMirrorCommand}','Mirror and upload as zip'),
-        (f'{BotCommands.UnzipMirrorCommand}','Mirror and extract files'),
-        (f'{BotCommands.QbMirrorCommand}','Mirror torrent using qBittorrent'),
-        (f'{BotCommands.QbZipMirrorCommand}','Mirror torrent and upload as zip using qb'),
-        (f'{BotCommands.QbUnzipMirrorCommand}','Mirror torrent and extract files using qb'),
-        (f'{BotCommands.WatchCommand}','Mirror yt-dlp supported link'),
-        (f'{BotCommands.ZipWatchCommand}','Mirror yt-dlp supported link as zip'),
-        (f'{BotCommands.CloneCommand}','Copy file/folder to Drive'),
-        (f'{BotCommands.LeechCommand}','Leech'),
-        (f'{BotCommands.ZipLeechCommand}','Leech and upload as zip'),
-        (f'{BotCommands.UnzipLeechCommand}','Leech and extract files'),
-        (f'{BotCommands.QbLeechCommand}','Leech torrent using qBittorrent'),
-        (f'{BotCommands.QbZipLeechCommand}','Leech torrent and upload as zip using qb'),
-        (f'{BotCommands.QbUnzipLeechCommand}','Leech torrent and extract using qb'),
-        (f'{BotCommands.LeechWatchCommand}','Leech yt-dlp supported link'),
-        (f'{BotCommands.LeechZipWatchCommand}','Leech yt-dlp supported link as zip'),
-        (f'{BotCommands.CountCommand}','Count file/folder of Drive'),
-        (f'{BotCommands.DeleteCommand}','Delete file/folder from Drive'),
-        (f'{BotCommands.CancelMirror}','Cancel a task'),
-        (f'{BotCommands.CancelAllCommand}','Cancel all downloading tasks'),
-        (f'{BotCommands.ListCommand}','Search in Drive'),
-        (f'{BotCommands.LeechSetCommand}','Leech settings'),
-        (f'{BotCommands.SetThumbCommand}','Set thumbnail'),
-        (f'{BotCommands.StatusCommand}','Get mirror status message'),
-        (f'{BotCommands.StatsCommand}','Bot usage stats'),
-        (f'{BotCommands.PingCommand}','Ping the bot'),
-        (f'{BotCommands.RestartCommand}','Restart the bot'),
-        (f'{BotCommands.LogCommand}','Get the bot Log'),
-        (f'{BotCommands.HelpCommand}','Get detailed help')
+        (f'{BotCommands.Mirror1Command}', 'Mirror'),
+        (f'{BotCommands.ZipMirror1Command}','Mirror and upload as zip'),
+        (f'{BotCommands.UnzipMirror1Command}','Mirror and extract files'),
+        (f'{BotCommands.QbMirror1Command}','Mirror torrent using qBittorrent'),
+        (f'{BotCommands.QbZipMirror1Command}','Mirror torrent and upload as zip using qb'),
+        (f'{BotCommands.QbUnzipMirror1Command}','Mirror torrent and extract files using qb'),
+        (f'{BotCommands.Watch1Command}','Mirror yt-dlp supported link'),
+        (f'{BotCommands.ZipWatch1Command}','Mirror yt-dlp supported link as zip'),
+        (f'{BotCommands.Clone1Command}','Copy file/folder to Drive'),
+        (f'{BotCommands.Leech1Command}','Leech'),
+        (f'{BotCommands.ZipLeech1Command}','Leech and upload as zip'),
+        (f'{BotCommands.UnzipLeech1Command}','Leech and extract files'),
+        (f'{BotCommands.QbLeech1Command}','Leech torrent using qBittorrent'),
+        (f'{BotCommands.QbZipLeech1Command}','Leech torrent and upload as zip using qb'),
+        (f'{BotCommands.QbUnzipLeech1Command}','Leech torrent and extract using qb'),
+        (f'{BotCommands.LeechWatch1Command}','Leech yt-dlp supported link'),
+        (f'{BotCommands.LeechZipWatch1Command}','Leech yt-dlp supported link as zip'),
+        (f'{BotCommands.Delete1Command}','Delete file/folder from Drive'),
+        (f'{BotCommands.Cancel1Mirror}','Cancel a task'),
+        (f'{BotCommands.CancelAll1Command}','Cancel all downloading tasks'),
+        (f'{BotCommands.List1Command}','Search in Drive'),
+        (f'{BotCommands.LeechSet1Command}','Leech settings'),
+        (f'{BotCommands.SetThumb1Command}','Set thumbnail'),
+        (f'{BotCommands.Status1Command}','Get mirror status message'),
+        (f'{BotCommands.Stats1Command}','Bot usage stats'),
+        (f'{BotCommands.Restart1Command}','Restart the bot'),
     ]
 
 def main():
@@ -254,7 +251,7 @@ def main():
         os.remove(".restartmsg")
     elif OWNER_ID:
         try:
-            text = "<b>Bot Restarted!</b>"
+            text = "<b>♻️Bot Restarted!</b>"
             bot.sendMessage(chat_id=OWNER_ID, text=text, parse_mode=ParseMode.HTML)
             if AUTHORIZED_CHATS:
                 for i in AUTHORIZED_CHATS:
