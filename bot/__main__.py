@@ -62,7 +62,7 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://github.com/BeastCloud/BeastCloud-Leech")
+    buttons.buildbutton("Repo", "https://github.com/BeastCloud")
     buttons.buildbutton("Support Group", "https://t.me/BeastCloudOfficial")
     buttons.buildbutton("Owner", "https://t.me/VijayD0211")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
@@ -173,9 +173,11 @@ help_string_telegraph = f'''<br>
 <b>/{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
 '''
 
-help = telegraph.create_page(
+help = Telegraph(access_token=telegraph_token).create_page(
         title='BeastCloud Search',
-        content=help_string_telegraph,
+        author_name='Vijay D',
+        author_url='https://t.me/VijayD0211',
+        html_content=help_string_telegraph,
     )["path"]
 
 help_string = f'''
